@@ -38,6 +38,11 @@
         document.querySelector("html").classList.add("dark");
       }
     </script>
+    <script
+      defer
+      src="https://stats.izveide.lv/script.js"
+      data-website-id="3cbf3a0b-7bb3-4065-a02e-fbf1a717242a"
+    ></script>
   </head>
   <body
     class="font-outfit antialiased bg-indigo-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 tracking-tight"
@@ -268,6 +273,7 @@
                         <div>
                           <button
                             class="btn text-gray-100 bg-gray-900 hover:bg-gray-800 dark:text-gray-800 dark:bg-gray-100 dark:hover:bg-white w-full cursor-pointer"
+                            id="apply"
                           >
                             Saņemt novērtējumu
                           </button>
@@ -323,5 +329,20 @@
     </div>
     <script src="./js/vendors/alpinejs.min.js" defer></script>
     <script src="./js/main.js"></script>
+    <script>
+      const button = document.getElementById("apply");
+      button.onclick = () => {
+        const email = document.getElementById("email").value;
+        const www = document.getElementById("www").value;
+        umami.track((props) => ({
+          ...props,
+          name: "Pieteikums",
+          data: {
+            email: email,
+            www: www,
+          },
+        }));
+      };
+    </script>
   </body>
 </html>
