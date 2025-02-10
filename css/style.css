@@ -1,6 +1,4 @@
-/* layer(base); */
-@import 'additional-styles/custom-fonts';
-
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&family=Outfit:wght@100..900&display=swap') layer(base);
 @import 'tailwindcss';
 
 /* Additional styles */
@@ -14,9 +12,6 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-inter: Inter, sans-serif;
-  --font-inter-tight: Inter Tight, sans-serif;
-
   --font-outfit: Outfit, sans-serif;
   --font-onest: Onest, sans-serif;
 
@@ -81,4 +76,9 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+}
+
+/* See Alpine.js: https://github.com/alpinejs/alpine#x-cloak */
+[x-cloak=""] {
+    display: none;
 }
